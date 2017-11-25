@@ -5,7 +5,7 @@ class Tag(models.Model):
 	tag_name = models.CharField(max_length=50)
 
 	def __str__(self):
-		return self.tag_name
+		return self.tag_name;
 
 	class Meta:
 		ordering = ('tag_name',)
@@ -28,6 +28,9 @@ class Post(models.Model):
 
 	def __str__(self):
 		return self.post_title
+
+	def get_tags(self):
+		return ", ".join([t.tag_name for t in self.tags.all()])
 
 	class Meta:
 		ordering = ('pub_date',)

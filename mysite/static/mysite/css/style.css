@@ -18,7 +18,15 @@ body{
 }
 
 .page-description-header{
-    height: 70vh;
+    height: 55vh;
+}
+
+#tags{
+    margin-bottom: 40px;
+}
+.tag button{
+    color: #fff !important;
+    margin-right: 10px;
 }
 
 .logo-container{

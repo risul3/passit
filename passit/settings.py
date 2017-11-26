@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     # My apps
     'post.apps.PostConfig',
     'mysite.apps.MysiteConfig',
+    'autofixture',
 ]
 
 MIDDLEWARE = [

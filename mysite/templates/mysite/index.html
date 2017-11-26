@@ -103,11 +103,12 @@
         <div class="masonry-container">
             {% with color="card-with-border" data="data-background='color' data-color='orange'" %}
                 {% for post in posts %}
-                    <div class="card-box col-md-4 col-sm-6">
+                    <div class="card-box col-md-4 col-sm-6 post" style="cursor: pointer;">
                         <div class="card {% cycle color '' %}" {% cycle data '' %}>
                             <div class="content">
-                                <h4 class="title"><a href="#">{{ post.post_title }}</a></h4>
+                                <h4 class="title">{{ post.post_title }}<small> - {{ post.post_author.username }}</small></h4>
                                 <p class="description">{{ post.post_body|truncatechars:255 }}</p>
+                                <p class="body hidden">{{ post.post_body }}</p>
                             </div>                                           
                         </div> <!-- end card -->
                     </div>
@@ -119,6 +120,19 @@
     </div> 
 </div> <!-- end wrapper -->
 
+<!-- Post view modal -->
+<div class="modal fade bs-example-modal-lg-2" id="post-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog modal-md" role="document">
+    <div class="modal-content">
+        <div class="modal-body">
+            <h2 id="post-modal-title" style="font-family: 'Playfair Display','Raleway','Helvetica Neue',Arial,sans-serif !important;"></h2>
+            <hr>
+            <p id="post-modal-body" style="font-family: 'Raleway','Helvetica Neue',Arial,sans-serif !important;"></p>
+        </div>
+    </div>
+  </div>
+</div>
+<!-- Post modal end -->
 </body>
 
     <script src="{% static 'mysite/js/jquery-1.10.2.js' %}" type="text/javascript"></script>
@@ -146,7 +160,16 @@
                 });   
             } else {
                 $('.mas-container').removeClass('mas-container').addClass('row');
-            }            
+            }
+
+            $('.post').on("click", function(e){
+                var title = $('.title', this).html();
+                var body = $('.body', this).text();
+
+                $("#post-modal-title").html(title);
+                $("#post-modal-body").text(body);
+                $("#post-modal").modal("show");
+            });
     	});
 	</script>
 	

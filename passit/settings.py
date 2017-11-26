@@ -78,9 +78,20 @@ WSGI_APPLICATION = 'passit.wsgi.application'
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    # }
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': 'd84b3kitpc4ced',
+        'USER': 'oznohkhmavjmrg',
+        'PASSWORD': '3dd5ca4c51818c0bfdeb7cb45404d7731acbfb31b5eb175f3f60f0e9fad39ef4',
+        'DATABASE': 'd84b3kitpc4ced',
+        'PORT': '5432',
+        'HOST': 'ec2-107-22-160-199.compute-1.amazonaws.com',
+        'URI': 'postgres://oznohkhmavjmrg:3dd5ca4c51818c0bfdeb7cb45404d7731acbfb31b5eb175f3f60f0e9fad39ef4@ec2-107-22-160-199.compute-1.amazonaws.com:5432/d84b3kitpc4ced'
     }
 }
 
